@@ -8,6 +8,7 @@ function ItemForm({ initialValues, onSubmit, submitText }) {
       price: "",
       description: "",
       imageUrl: "",
+      manufactureDate: "",
     }
   );
 
@@ -54,6 +55,15 @@ function ItemForm({ initialValues, onSubmit, submitText }) {
 
       <label>Image URL</label>
       <input name="imageUrl" value={formData.imageUrl} onChange={handleChange} />
+      
+      <label>Manufacture Date</label>
+      <input
+        type="date"
+        name="manufactureDate"
+        value={formData.manufactureDate ? formData.manufactureDate.split("T")[0] : ""}
+        onChange={handleChange}
+        required
+      />
 
       <button className="btn primary" type="submit">{submitText}</button>
     </form>

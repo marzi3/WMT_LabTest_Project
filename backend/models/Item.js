@@ -27,6 +27,10 @@ const itemSchema = new mongoose.Schema(
       default: "",
       trim: true,
     },
+    manufactureDate: {
+      type: Date,
+      required: [true, "Manufacture date is required"],
+    },
   },
   { timestamps: true }
 );
