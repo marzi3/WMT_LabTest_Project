@@ -19,8 +19,15 @@ app.use("/api/items", itemRoutes);
 
 const PORT = process.env.PORT || 5000;
 
+const MONGO_URI = process.env.MONGO_URI;
+
+if (!MONGO_URI) {
+  console.error("Error: MONGO_URI is not defined in environment variables.");
+  process.exit(1);
+}
+
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect(MONGO_URI)
   .then(() => {
     console.log("MongoDB connected");
     app.listen(PORT, () => {
